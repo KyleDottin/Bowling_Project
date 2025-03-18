@@ -1,4 +1,4 @@
-# 🎳 Bowling Project
+# Bowling Project
 
 This project simulates a mini bowling game using a Raspberry Pi and an STM microcontroller. The system:
 
@@ -9,7 +9,7 @@ This project simulates a mini bowling game using a Raspberry Pi and an STM micro
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
 ### Hardware
 - Raspberry Pi 4B (with GPIO and camera support)
@@ -38,7 +38,7 @@ You may need to use the option "--break-system-packages".
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 ### 1. GPIO Signal Management
 `SignalSending.py` sends a HIGH signal from GPIO pin 17 and waits for a response on GPIO pin 27 to detect the platform's status.
@@ -57,7 +57,7 @@ The STM code controls the physical movement of the platform.
 
 ---
 
-## ▶ Running the Project
+## Running the Project
 
 1. Set up your hardware.
 2. Upload STM code to the microcontroller using STM32CubeIDE or equivalent.
@@ -72,7 +72,7 @@ sudo python3 main.py
 
 ---
 
-## 📝 Notes
+## Notes
 
 - Ensure GPIO voltages are properly interfaced between Raspberry Pi and STM.
 - Calibrate pixel positions and color thresholds in `AnalyzePicture.py` for accurate results.
