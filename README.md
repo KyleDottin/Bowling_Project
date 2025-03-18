@@ -1,6 +1,6 @@
 # Bowling Project
 
-This project simulates a mini bowling game using a Raspberry Pi and an STM microcontroller. The system:
+This school project simulates a mini bowling game using a Raspberry Pi and an STM microcontroller. The system:
 
 - Activate and detects platform movements using GPIO signals.
 - Captures images using the Raspberry Pi Camera.
