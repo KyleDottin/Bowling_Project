@@ -10,7 +10,8 @@ def TheBallPasses():
     GPIO.setwarnings(False)
     GPIO.setup(GPIO_Ball_Pass, GPIO.IN)
     
-    i = 0               # number of shot done
+    i = 0 # number of shot done
+    count_win=0 # Will deals with Strike and Spare
 
     try:
         while(i<2):
@@ -23,7 +24,17 @@ def TheBallPasses():
                     print("photo")
                     i+=1
                     print("Picture ok!")
-                    #analyse_skittle()
+                    StateSkittle=analyse_skittle()
+
+                    for element in StateSkittle: #Handling of different case
+                        if element==True:
+                            count_win+=1
+                        if count_win==len(StateSkittle) and i==2:
+                            print('Spare!')
+                        elif count_win==len(StateSkittle) and i==1:
+                            print('Strike!!!')
+                        elif count_win != len(StateSkittle) and i==2:
+                            print(f'{len(StateSkittle)-count_win} skittle(s) remaining...')
                     print("analyse")
                     State=False
 

@@ -6,6 +6,6 @@ if __name__ == "__main__":
 	print("You can play!")
 	TheBallPasses()
 	print("Next party")
-	time.sleep(2)
+	time.sleep(1)
 	GPIO_communication()
 	
