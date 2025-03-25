@@ -11,13 +11,12 @@ def TheBallPasses():
     GPIO.setup(GPIO_Ball_Pass, GPIO.IN)
     
     i = 0 # number of shot done
-    count_win=0 # deals with Strike and Spare
 
     try:
         while(i<2):
             State=True
             while State:
-                count_win=0 # deals with Strike and Spare
+                count_win=0 # number of skittles that fell, deals with Strike and Spare
                 enter = GPIO.input(GPIO_Ball_Pass)     #pin 12 receive from TFMS5..0
                 if enter == GPIO.HIGH:
                     time.sleep(4)
@@ -33,16 +32,20 @@ def TheBallPasses():
                             
                     if count_win==len(StateSkittle) and i==2:
                         print('Spare!')
+                        point=[5,1]
                     elif count_win==len(StateSkittle) and i==1:
                         print('Strike!!!')
                         i=2
+                        point=[10,2]
                     elif count_win != len(StateSkittle) and i==2:
                         print(len(StateSkittle))
                         print(count_win)
+                        point=[count_win,0]
                         print(f'{len(StateSkittle)-count_win} skittle(s) remaining...')
 
                     State=False
+            
+        return point
 
     except KeyboardInterrupt:
         GPIO.cleanup()
-    print("You can play!")
