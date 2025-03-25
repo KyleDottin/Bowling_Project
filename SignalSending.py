@@ -19,7 +19,7 @@ def GPIO_communication():
             GPIO.output(GPIO_Send_PIN, GPIO.HIGH)  # Sent High on PA7 with pin 11
             State = True;
             time.sleep(1)
-            print("The signal is turned off.")    
+   
             GPIO.output(GPIO_Send_PIN, GPIO.LOW)  # Sent a Low signal
             twice+=1
 

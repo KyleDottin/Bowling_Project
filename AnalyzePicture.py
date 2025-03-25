@@ -23,5 +23,4 @@ def analyse_skittle(path="skittles.jpg"):
 	list_rgb3=[[2220,709],[2086,682],[2006,722],[1993,495],[2193,469]]
 	
 	StateSkittle=[IsUp(list_rgb1,skittles),IsUp(list_rgb2,skittles),IsUp(list_rgb3,skittles)]
-	print(StateSkittle)
 	return StateSkittle

@@ -11,12 +11,13 @@ def TheBallPasses():
     GPIO.setup(GPIO_Ball_Pass, GPIO.IN)
     
     i = 0 # number of shot done
-    count_win=0 # Will deals with Strike and Spare
+    count_win=0 # deals with Strike and Spare
 
     try:
         while(i<2):
             State=True
             while State:
+                count_win=0 # deals with Strike and Spare
                 enter = GPIO.input(GPIO_Ball_Pass)     #pin 12 receive from TFMS5..0
                 if enter == GPIO.HIGH:
                     time.sleep(4)
@@ -26,16 +27,19 @@ def TheBallPasses():
                     print("Picture ok!")
                     StateSkittle=analyse_skittle()
 
-                    for element in StateSkittle: #Handling of different case
+                    for element in StateSkittle:
                         if element==True:
                             count_win+=1
-                        if count_win==len(StateSkittle) and i==2:
-                            print('Spare!')
-                        elif count_win==len(StateSkittle) and i==1:
-                            print('Strike!!!')
-                        elif count_win != len(StateSkittle) and i==2:
-                            print(f'{len(StateSkittle)-count_win} skittle(s) remaining...')
-                    print("analyse")
+                            
+                    if count_win==len(StateSkittle) and i==2:
+                        print('Spare!')
+                    elif count_win==len(StateSkittle) and i==1:
+                        print('Strike!!!')
+                    elif count_win != len(StateSkittle) and i==2:
+                        print(len(StateSkittle))
+                        print(count_win)
+                        print(f'{len(StateSkittle)-count_win} skittle(s) remaining...')
+
                     State=False
 
     except KeyboardInterrupt:
