@@ -35,6 +35,7 @@ def TheBallPasses():
                         print('Spare!')
                     elif count_win==len(StateSkittle) and i==1:
                         print('Strike!!!')
+                        i=2
                     elif count_win != len(StateSkittle) and i==2:
                         print(len(StateSkittle))
                         print(count_win)
